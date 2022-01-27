@@ -1,0 +1,24 @@
+@include b(mac-icon) {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+
+  @include e(item) {
+    margin-right: 10px;
+    cursor: pointer;
+
+    @include round(13px);
+  }
+
+  @include m(red) {
+    background: #ed655a;
+  }
+
+  @include m(green) {
+    background: #72be47;
+  }
+
+  @include m(yellow) {
+    background: #e0c04c;
+  }
+}

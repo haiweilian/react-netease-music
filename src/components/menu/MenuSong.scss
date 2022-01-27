@@ -1,0 +1,40 @@
+@include b(menu-scroll) {
+  flex: 1;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+@include b(menu-song) {
+  margin-bottom: 15px;
+
+  @include e(title) {
+    padding: 0 15px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #909090;
+  }
+
+  @include e(item) {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.1s;
+
+    @include when(active) {
+      color: #d33a31;
+      background: #e7e7e7;
+    }
+
+    &:hover {
+      background: #e7e7e7;
+    }
+  }
+
+  @include e(value) {
+    margin-left: 10px;
+
+    @include text-ellipsis();
+  }
+}

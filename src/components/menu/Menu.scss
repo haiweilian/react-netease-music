@@ -1,0 +1,12 @@
+@include b(menu) {
+  position: fixed;
+  top: 50px;
+  bottom: 60px;
+  left: 0;
+  z-index: $z-index-menu;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: calc(100vh - 50px - 60px);
+  background: #ededed;
+}

@@ -1,0 +1,12 @@
+@include b(history) {
+  display: flex;
+  margin-left: 30px;
+
+  @include e(item) {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+}

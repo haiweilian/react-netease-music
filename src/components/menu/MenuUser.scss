@@ -1,0 +1,30 @@
+@include b(menu-user) {
+  padding: 16px;
+
+  @include e(user) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  @include e(avatar) {
+    @include round(40px);
+  }
+
+  @include e(name) {
+    padding-left: 10px;
+    font-size: 14px;
+  }
+
+  @include e(uid) {
+    margin-top: 20px;
+
+    p {
+      line-height: 28px;
+    }
+  }
+
+  @include e(login) {
+    width: 100%;
+  }
+}
