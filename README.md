@@ -4,7 +4,7 @@
 
 **预览地址**
 
-<https://haiweilian-music-react.vercel.app>
+<https://haiweilian-music.vercel.app>
 
 **项目 UI 参考了 ssh 的开源项目**
 
