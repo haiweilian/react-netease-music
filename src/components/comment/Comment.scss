@@ -1,0 +1,15 @@
+@include b(comments) {
+  @include e(title) {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @include e(block) {
+    margin-bottom: 30px;
+  }
+
+  @include e(pagination) {
+    text-align: right;
+  }
+}

@@ -1,17 +1,19 @@
-body {
-  font-size: 16px;
-  color: #4a4a4a;
-}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 
-body,
-#app {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-
-  * {
-    box-sizing: border-box;
+  p {
     padding: 0;
     margin: 0;
   }
+}
+
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 16px;
+  color: #4a4a4a;
 }

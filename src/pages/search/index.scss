@@ -1,0 +1,16 @@
+@include b(search-header) {
+  padding: 20px 0;
+
+  @include e(keywords) {
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  @include e(found) {
+    font-size: 12px;
+    color: #bebebe;
+    letter-spacing: 2px;
+  }
+}

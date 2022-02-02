@@ -1,0 +1,62 @@
+@include b(comment) {
+  display: flex;
+  padding-top: 20px;
+
+  @include e(avatar) {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+
+    img {
+      @include round(100%);
+    }
+  }
+
+  @include e(content) {
+    width: 100%;
+    padding-bottom: 20px;
+    font-size: 12px;
+
+    @include when(border) {
+      border-bottom: 1px solid #f2f2f1;
+    }
+  }
+
+  @include e(replied) {
+    padding: 8px;
+    margin-top: 8px;
+    background: #e6e5e6;
+    border-radius: 4px;
+  }
+
+  @include e(text) {
+    .username {
+      display: inline-block;
+      margin-right: 4px;
+      color: #517eaf;
+    }
+
+    .text {
+      line-height: 1.5;
+    }
+  }
+
+  @include e(info) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    .date {
+      color: #bebebe;
+    }
+
+    .actions {
+      color: #bebebe;
+
+      span {
+        margin-left: 5px;
+      }
+    }
+  }
+}

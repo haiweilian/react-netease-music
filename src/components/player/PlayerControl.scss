@@ -1,0 +1,15 @@
+@include b(player-control) {
+  @include e(prev) {
+    color: #d33a31;
+  }
+
+  @include e(next) {
+    color: #d33a31;
+  }
+
+  @include e(play) {
+    margin: 0 10px;
+    color: #d33a31;
+    cursor: pointer;
+  }
+}

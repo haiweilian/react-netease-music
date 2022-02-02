@@ -1,23 +1,48 @@
 import './MenuSong.scss'
+import Icon from '../base/Icon'
+import { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
+import { store } from '~/store'
+import { localMenus } from '~/utils/local'
+import { getUserPlaylist } from '~/api/user'
+import type { IUser, IMenu } from '~/types'
 
 export default function MenuSong() {
+  const [user, setUser] = useState<Partial<IUser>>({})
+  store.subscribe(() => {
+    setUser((store.getState().user as any).user)
+  })
+
+  const [menusList, setMenus] = useState<IMenu[]>([])
+  useEffect(() => {
+    if (user.userId) {
+      getUserPlaylist({ uid: user.userId }).then((res) => {
+        setMenus(localMenus.concat(res))
+      })
+    } else {
+      setMenus(localMenus)
+    }
+  }, [user])
+
   return (
     <div className="menu-scroll">
-      {/* <div v-for="menus of menusList" :key="menus.name" class="menu-song">
-      <p class="menu-song__title">
-        {{ menus.name }}
-      </p>
-      <ul v-for="menu of menus.children" :key="menu.link" class="">
-        <RouterLink v-slot="{navigate, isExactActive}" :to="menu.link" custom>
-          <li class="menu-song__item" :class="{'is-active': isExactActive}" @click="navigate">
-            <Icon :name="menu.icon" />
-            <span class="menu-song__value">
-              {{ menu.name }}
-            </span>
-          </li>
-        </RouterLink>
-      </ul>
-    </div> */}
+      {menusList.map((menus) => (
+        <div key={menus.name} className="menu-song">
+          <p className="menu-song__title">{menus.name}</p>
+          <ul>
+            {menus.children.map((menu) => (
+              <NavLink
+                to={menu.link}
+                key={menu.name}
+                className={({ isActive }) => 'menu-song__item' + (isActive ? ' is-active' : '')}
+              >
+                <Icon name={menu.icon} />
+                <span className="menu-song__value">{menu.name}</span>
+              </NavLink>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   )
 }

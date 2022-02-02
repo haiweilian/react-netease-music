@@ -1,7 +1,7 @@
+import './Header.scss'
 import HeaderMac from './HeaderMac'
 import HeaderHistory from './HeaderHistory'
 import HeaderSearch from './HeaderSearch'
-import './Header.scss'
 
 export default function Header() {
   return (

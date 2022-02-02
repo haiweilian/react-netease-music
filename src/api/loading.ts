@@ -1,14 +1,19 @@
-import ReactDOM from 'react-dom'
-import { Spin } from 'antd'
+import { store, SET_LOADING } from '~/store'
 
 let needLoadingRequestCount = 0
 
 function startLoading() {
-  ReactDOM.createPortal(<Spin tip="加载中..." size="large" />, document.querySelector('body')!)
+  store.dispatch({
+    type: SET_LOADING,
+    value: true,
+  })
 }
 
 function endLoading() {
-  document.body.removeChild(document.getElementById('loading')!)
+  store.dispatch({
+    type: SET_LOADING,
+    value: false,
+  })
 }
 
 function tryCloseLoading() {

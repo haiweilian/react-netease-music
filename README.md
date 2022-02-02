@@ -1,6 +1,6 @@
 # react-netease-music
 
-实现之前的 [vnext-netease-music](https://github.com/haiweilian/vnext-netease-music) 的 React 版本。
+实现之前的 [vnext-netease-music](https://github.com/haiweilian/vnext-netease-music) 的 React 版本。结构和实现思路基本保持一致也是为了对比 Vue 和 React 写法的区别。
 
 **预览地址**
 

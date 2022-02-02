@@ -1,6 +1,6 @@
+import './HeaderHistory.scss'
 import { Tooltip } from 'antd'
 import Icon from '../base/Icon'
-import './HeaderHistory.scss'
 
 export default function HeaderHistory() {
   return (
