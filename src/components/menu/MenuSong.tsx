@@ -10,7 +10,7 @@ import type { IUser, IMenu } from '~/types'
 export default function MenuSong() {
   const [user, setUser] = useState<Partial<IUser>>({})
   store.subscribe(() => {
-    setUser((store.getState().user as any).user)
+    setUser(store.getState().user.user)
   })
 
   const [menusList, setMenus] = useState<IMenu[]>([])

@@ -4,7 +4,7 @@ import type { Action } from 'redux'
 export const SET_LOADING = 'SET_LOADING'
 
 export interface ISpinState {
-  loading: false
+  loading: boolean
 }
 
 export interface ISpinAction extends Action {
@@ -16,7 +16,7 @@ export function spinReducer(
     loading: false,
   },
   action: ISpinAction
-) {
+): ISpinState {
   switch (action.type) {
     case SET_LOADING:
       return { loading: action.value }

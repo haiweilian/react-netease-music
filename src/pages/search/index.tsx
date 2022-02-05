@@ -10,7 +10,6 @@ export default function Search() {
     <>
       <div className="search-header">
         <span className="search-header__keywords">{keywords}</span>
-        {/* <span className="search-header__found">找到 0 个结果</span> */}
       </div>
       <Tabs defaultActiveKey="1">
         <Tabs.TabPane tab="歌曲" key="1">

@@ -1,7 +1,7 @@
 import './MenuUser.scss'
 import { Input, Button, Modal } from 'antd'
-import { useState, useEffect } from 'react'
-import { useLocalStorageState } from 'ahooks'
+import { useState } from 'react'
+import { useMount, useLocalStorageState } from 'ahooks'
 import { store, SET_USER } from '~/store'
 import { GLOBAL_UID_KEY } from '~/utils/constant'
 import { getUserDetail } from '~/api/user'
@@ -23,9 +23,9 @@ export default function MenuUser() {
       value: data,
     })
   }
-  useEffect(() => {
+  useMount(() => {
     uid && login()
-  }, [])
+  })
 
   /**
    * 退出登录

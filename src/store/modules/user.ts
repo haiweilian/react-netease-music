@@ -15,7 +15,7 @@ export interface IUserState {
 }
 
 export interface IUserAction extends Action {
-  value: Partial<IUser>
+  value: IUser
 }
 
 export function userReducer(
@@ -23,7 +23,7 @@ export function userReducer(
     user: {} as IUser,
   },
   action: IUserAction
-) {
+): IUserState {
   switch (action.type) {
     case SET_USER:
       return { user: action.value }

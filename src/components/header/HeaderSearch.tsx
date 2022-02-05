@@ -19,8 +19,8 @@ export default function HeaderSearch() {
    */
   const [search, setSearch] = useState('')
   const [isSearch, setIsSearch] = useState(false)
-  const refInput = useRef()
-  const refSearch = useRef()
+  const refInput = useRef(null)
+  const refSearch = useRef(null)
   useClickAway(() => {
     setIsSearch(false)
   }, [refInput, refSearch])
@@ -87,7 +87,7 @@ export default function HeaderSearch() {
             ))}
           </div>
         </div>,
-        document.querySelector('#root')!
+        document.querySelector('#out')!
       )}
     </>
   )

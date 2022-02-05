@@ -1,69 +1,43 @@
-// {/* <template>
-//   <div class="player-volume">
-//     <Icon
-//       :name="volumeStatusName"
-//       size="20"
-//       @click="changeVolumeStatus"
-//     />
-//     <ElSlider
-//       v-model="volume"
-//       :min="0"
-//       :max="1"
-//       :step="0.01"
-//       :show-tooltip="false"
-//       class="player-volume__slider"
-//       @input="changeVolume"
-//     />
-//   </div>
-// </template>
+import './PlayerVolume.scss'
+import { Slider } from 'antd'
+import { useRef, useState } from 'react'
+import Icon from '~/components/base/Icon'
 
-// <script setup lang="ts">
-// import { ref, watch, computed, onMounted } from 'vue'
-// import { ElSlider } from 'element-plus'
-// import Icon from '~/components/base/Icon.vue'
+interface Props {
+  volume: number
+  changeVolume: (volume: number) => void
+}
 
-// const props = defineProps({
-//   volume: {
-//     type: Number,
-//     required: true,
-//   },
-// })
-// const emits = defineEmits(['update:volume'])
+export default function PlayerVolume(props: Props) {
+  /**
+   * 切换静音时保存现有音量
+   */
+  const volumeCache = useRef(0)
+  const volumeStatus = useRef(true)
+  const [volumeStatusName, setVolumeStatusName] = useState('volume-up')
+  const changeVolumeStatus = () => {
+    volumeStatus.current = !volumeStatus.current
+    setVolumeStatusName(volumeStatus.current ? 'volume-up' : 'volume-off')
+    if (volumeStatus.current) {
+      props.changeVolume(volumeCache.current)
+    } else {
+      volumeCache.current = props.volume
+      props.changeVolume(0)
+    }
+  }
 
-// /**
-//  * 改变音量更新值
-//  */
-// const volume = ref<number>(0.75)
-// const changeVolume = () => {
-//   emits('update:volume', volume.value)
-// }
-
-// /**
-//  * 切换静音时保存现有音量
-//  */
-// const volumeCache = ref<number>(0)
-// const volumeStatus = ref<boolean>(true)
-// const volumeStatusName = computed(() => volumeStatus.value ? 'volume-up' : 'volume-off')
-// const changeVolumeStatus = () => {
-//   volumeStatus.value = !volumeStatus.value
-//   if (volumeStatus.value) {
-//     volume.value = volumeCache.value
-//   }
-//   else {
-//     volumeCache.value = volume.value
-//     volume.value = 0
-//   }
-// }
-
-// onMounted(() => {
-//   changeVolume()
-// })
-
-// watch(() => props.volume, (newv) => {
-//   volume.value = newv
-// })
-// </script>
-
-// <style lang="scss" scoped>
-
-// </style> */}
+  return (
+    <div className="player-volume">
+      <Icon name={volumeStatusName} size={20} onClick={changeVolumeStatus} />
+      <Slider
+        value={props.volume}
+        min={0}
+        max={1}
+        step={0.01}
+        tooltipVisible={false}
+        onChange={props.changeVolume}
+        className="player-volume__slider"
+      />
+    </div>
+  )
+}

@@ -12,6 +12,6 @@
 
   @include e(slider) {
     width: 150px;
-    margin-left: 10px;
+    margin-left: 10px !important;
   }
 }

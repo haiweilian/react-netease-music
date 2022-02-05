@@ -13,7 +13,7 @@ export interface IPlayerState {
 }
 
 export interface IPlayerAction extends Action {
-  value: ISong | boolean | null
+  value: any
 }
 
 export function playerReducer(
@@ -22,7 +22,7 @@ export function playerReducer(
     lyricPageStatus: false,
   },
   action: IPlayerAction
-) {
+): IPlayerState {
   switch (action.type) {
     case SET_CURRENT_SONG:
       return {
@@ -32,7 +32,7 @@ export function playerReducer(
     case SET_LYRIC_PAGE_STATUS:
       return {
         ...state,
-        lyricPageStatus: action.value,
+        lyricPageStatus: action.value === null ? !state.lyricPageStatus : action.value,
       }
     default:
       return state

@@ -1,56 +1,29 @@
 /* slider
 -------------------------- */
-.el-slider {
-  .el-slider__runway {
-    height: 3px;
-    margin: 0;
+.ant-slider {
+  margin: 0;
+
+  .ant-slider-track {
+    background-color: #d33a31 !important;
   }
 
-  .el-slider__bar {
-    height: 3px;
-    background: #d33a31;
-  }
-
-  .el-slider__button-wrapper {
-    top: -17px;
-  }
-
-  .el-slider__button {
-    width: 15px;
-    height: 15px;
-    background: #d33a31;
-    border: none;
-  }
-}
-
-.slider-hover-button {
-  .el-slider .el-slider__button {
-    opacity: 0;
-  }
-
-  &:hover .el-slider .el-slider__button {
-    opacity: 1;
+  .ant-slider-handle {
+    border-color: #d33a31 !important;
   }
 }
 
 /* tabs
 -------------------------- */
-.el-tabs {
-  .el-tabs__item {
-    color: #7f7f81;
-
-    &.is-active,
-    &:hover {
+.ant-tabs {
+  .ant-tabs-tab:hover,
+  .ant-tabs-tab.ant-tabs-tab-active {
+    .ant-tabs-tab-btn {
       color: #d33a31;
     }
   }
 
-  .el-tabs__active-bar {
+  .ant-tabs-ink-bar {
     background-color: #d33a31;
-  }
-
-  .el-tabs__nav-wrap::after {
-    height: 1px;
   }
 }
 

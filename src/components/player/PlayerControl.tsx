@@ -1,41 +1,37 @@
-// {/* <template>
-//   <div class="player-control__prev">
-//     <ElTooltip content="暂未开发" placement="top">
-//       <Icon name="player-prev" size="22" />
-//     </ElTooltip>
-//   </div>
-//   <div class="player-control__play">
-//     <Icon :name="status" size="50" @click="changeStatus" />
-//   </div>
-//   <div class="player-control__next">
-//     <ElTooltip content="暂未开发" placement="top">
-//       <Icon name="player-next" size="22" />
-//     </ElTooltip>
-//   </div>
-// </template>
+import './PlayerControl.scss'
+import { Tooltip } from 'antd'
+import { useMemo } from 'react'
+import Icon from '~/components/base/Icon'
 
-// <script setup lang="ts">
-// import { ElTooltip } from 'element-plus'
-// import { computed } from 'vue'
-// import Icon from '~/components/base/Icon.vue'
+interface Props {
+  playing: boolean
+  togglePlaying: () => void
+}
 
-// const props = defineProps({
-//   playing: {
-//     type: Boolean,
-//     required: true,
-//   },
-// })
-// const emits = defineEmits(['update:playing'])
+export default function PlayerControl(props: Props) {
+  const status = useMemo(() => {
+    return props.playing ? 'player-pause' : 'player-play'
+  }, [props.playing])
 
-// /**
-//  * 设置播放状态
-//  */
-// const status = computed(() => props.playing ? 'player-pause' : 'player-play')
-// const changeStatus = () => {
-//   emits('update:playing', !props.playing)
-// }
-// </script>
-
-// <style lang="scss" scoped>
-
-// </style> */}
+  return (
+    <>
+      <div className="player-control__prev">
+        <Tooltip title="暂未开发" placement="top">
+          <span>
+            <Icon name="player-prev" size={22} />
+          </span>
+        </Tooltip>
+      </div>
+      <div className="player-control__play" onClick={props.togglePlaying}>
+        <Icon name={status} size={50} />
+      </div>
+      <div className="player-control__next">
+        <Tooltip title="暂未开发" placement="top">
+          <span>
+            <Icon name="player-next" size={22} />
+          </span>
+        </Tooltip>
+      </div>
+    </>
+  )
+}

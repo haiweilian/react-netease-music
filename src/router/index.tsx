@@ -1,10 +1,11 @@
-import type { RouteObject } from 'react-router-dom'
+import { lazy } from 'react'
+import { RouteObject } from 'react-router-dom'
 import Layout from '~/layouts/default'
-import Discovery from '~/pages/discovery/index'
-import Playlist from '~/pages/playlist/index'
-import PlaylistDetail from '~/pages/playlist-detail/index'
-import Search from '~/pages/search/index'
-import Song from '~/pages/song/index'
+const Discovery = lazy(() => import('~/pages/discovery/index'))
+const Playlist = lazy(() => import('~/pages/playlist/index'))
+const PlaylistDetail = lazy(() => import('~/pages/playlist-detail/index'))
+const Search = lazy(() => import('~/pages/search/index'))
+const Song = lazy(() => import('~/pages/song/index'))
 
 const routes: RouteObject[] = [
   {
