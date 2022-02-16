@@ -21,8 +21,8 @@ export default function Tabs({ tabs, value, onChange }: TabsProps) {
           key={tab.value}
           className={tab.value === currentValue ? 'tabs__item is-active' : 'tabs__item'}
           onClick={() => {
-            setCurrentValue(tab.label)
-            onChange(tab.label)
+            setCurrentValue(tab.value)
+            onChange(tab.value)
           }}
         >
           {tab.label}
