@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs should take a snapshot 1`] = `
+exports[`Tabs should tabs 1`] = `
 <div>
   <ul
     class="tabs"
@@ -74,7 +74,7 @@ exports[`Tabs should take a snapshot 1`] = `
 </div>
 `;
 
-exports[`Tabs should take a snapshot 2`] = `
+exports[`Tabs should tabs 2`] = `
 <div>
   <ul
     class="tabs"

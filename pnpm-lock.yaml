@@ -23,8 +23,8 @@ specifiers:
   eslint: ^8.7.0
   eslint-plugin-jest: ^26.0.0
   husky: ^7.0.4
-  identity-obj-proxy: ^3.0.0
   jest: ^27.4.7
+  jest-transform-stub: ^2.0.0
   lint-staged: ^12.3.1
   lrc-kit: ^1.1.1
   prettier: ^2.5.1
@@ -73,8 +73,8 @@ devDependencies:
   eslint: 8.7.0
   eslint-plugin-jest: 26.0.0_fba2f7198138739da2e4544725d6464d
   husky: 7.0.4
-  identity-obj-proxy: 3.0.0
   jest: 27.4.7
+  jest-transform-stub: 2.0.0
   lint-staged: 12.3.1
   prettier: 2.5.1
   sass: 1.49.0
@@ -3753,10 +3753,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /harmony-reflect/1.6.2:
-    resolution: {integrity: sha512-HIp/n38R9kQjDEziXyDTuW3vvoxxyxjxFzXLrBr18uB47GnSt+G9D29fqrpM5ZkspMcPICud3XsBJQ4Y2URg8g==}
-    dev: true
-
   /has-ansi/2.0.0:
     resolution: {integrity: sha1-NPUEnOHs3ysGSa8+8k5F7TVBbZE=}
     engines: {node: '>=0.10.0'}
@@ -3941,13 +3937,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: 2.1.2
-    dev: true
-
-  /identity-obj-proxy/3.0.0:
-    resolution: {integrity: sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ=}
-    engines: {node: '>=4'}
-    dependencies:
-      harmony-reflect: 1.6.2
     dev: true
 
   /ignore/4.0.6:
@@ -4760,6 +4749,10 @@ packages:
       semver: 7.3.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-transform-stub/2.0.0:
+    resolution: {integrity: sha512-lspHaCRx/mBbnm3h4uMMS3R5aZzMwyNpNIJLXj4cEsV0mIUtS4IjYJLSoyjRCtnxb6RIGJ4NL2quZzfIeNhbkg==}
     dev: true
 
   /jest-util/27.4.2:
