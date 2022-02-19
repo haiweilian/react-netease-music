@@ -1,6 +1,6 @@
 import './PlayerVolume.scss'
 import { Slider } from 'antd'
-import { useRef, useState } from 'react'
+import { memo, useRef, useState } from 'react'
 import Icon from '~/components/base/Icon'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   changeVolume: (volume: number) => void
 }
 
-export default function PlayerVolume(props: Props) {
+function PlayerVolume(props: Props) {
   /**
    * 切换静音时保存现有音量
    */
@@ -41,3 +41,5 @@ export default function PlayerVolume(props: Props) {
     </div>
   )
 }
+
+export default memo(PlayerVolume)

@@ -12,6 +12,7 @@ specifiers:
   '@types/node': ^17.0.12
   '@types/react': ^17.0.33
   '@types/react-dom': ^17.0.10
+  '@types/react-lazyload': ^3.1.1
   '@types/redux-logger': ^3.0.9
   '@vitejs/plugin-react': ^1.0.7
   ahooks: ^3.1.9
@@ -30,6 +31,7 @@ specifiers:
   prettier: ^2.5.1
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-lazyload: ^3.2.0
   react-redux: ^7.2.6
   react-router-dom: ^6.2.1
   redux: ^4.1.2
@@ -49,6 +51,7 @@ dependencies:
   lrc-kit: 1.1.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-lazyload: 3.2.0_react-dom@17.0.2+react@17.0.2
   react-redux: 7.2.6_react-dom@17.0.2+react@17.0.2
   react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
   redux: 4.1.2
@@ -66,6 +69,7 @@ devDependencies:
   '@types/node': 17.0.12
   '@types/react': 17.0.38
   '@types/react-dom': 17.0.11
+  '@types/react-lazyload': 3.1.1
   '@types/redux-logger': 3.0.9
   '@vitejs/plugin-react': 1.1.4
   commitizen: 4.2.4_@types+node@17.0.12
@@ -1226,6 +1230,12 @@ packages:
 
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
+    dependencies:
+      '@types/react': 17.0.38
+    dev: true
+
+  /@types/react-lazyload/3.1.1:
+    resolution: {integrity: sha512-e9jsondHYzeApb67In+SdvxskBPC6pfD70j0L7l4kqviqCkkJAxD8iyMZSu5dcuYZGLXLAkp1SqkDK+4iVjLSA==}
     dependencies:
       '@types/react': 17.0.38
     dev: true
@@ -6423,6 +6433,16 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+
+  /react-lazyload/3.2.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-zJlrG8QyVZz4+xkYZH5v1w3YaP5wEFaYSUWC4CT9UXfK75IfRAIEdnyIUF+dXr3kX2MOtL1lUaZmaQZqrETwgw==}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react-redux/7.2.6_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-10RPdsz0UUrRL1NZE0ejTkucnclYSgXp5q+tB5SWx2qeG2ZJQJyymgAhwKy73yiL/13btfB6fPr+rgbMAaZIAQ==}

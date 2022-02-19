@@ -1,5 +1,5 @@
 import './PlayerLyric.scss'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, memo } from 'react'
 import { createPortal } from 'react-dom'
 import { Lrc, Runner, Lyric } from 'lrc-kit'
 import PlayBar from '~/assets/image/play-bar.png'
@@ -17,7 +17,7 @@ interface Props {
   currentSong: ISong
 }
 
-export default function PlayerLyric(props: Props) {
+function PlayerLyric(props: Props) {
   /**
    * 是否展示歌词
    */
@@ -114,6 +114,8 @@ export default function PlayerLyric(props: Props) {
         </div>
       </div>
     </div>,
-    document.querySelector('#out')!
+    document.querySelector('body')!
   )
 }
+
+export default memo(PlayerLyric)

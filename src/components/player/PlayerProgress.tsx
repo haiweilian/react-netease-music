@@ -1,5 +1,6 @@
 import './PlayerProgress.scss'
 import { Slider } from 'antd'
+import { memo } from 'react'
 
 interface Props {
   currentTime: number
@@ -7,7 +8,7 @@ interface Props {
   changeCurrentTime: (time: number) => void
 }
 
-export default function PlayerProgress(props: Props) {
+function PlayerProgress(props: Props) {
   return (
     <div className="player-progress">
       <Slider
@@ -20,3 +21,5 @@ export default function PlayerProgress(props: Props) {
     </div>
   )
 }
+
+export default memo(PlayerProgress)

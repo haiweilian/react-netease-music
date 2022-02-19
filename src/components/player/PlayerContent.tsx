@@ -1,6 +1,6 @@
 import './PlayerContent.scss'
 import dayjs from 'dayjs'
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { store, SET_LYRIC_PAGE_STATUS } from '~/store'
 import { thumbnail } from '~/utils'
 import { ISong } from '~/types'
@@ -12,7 +12,7 @@ interface Props {
   duration: number
 }
 
-export default function PlayerContent(props: Props) {
+function PlayerContent(props: Props) {
   const [iconStatus, setIconStatus] = useState('expand')
   const togglePlayer = () => {
     store.dispatch({
@@ -46,3 +46,5 @@ export default function PlayerContent(props: Props) {
     </>
   )
 }
+
+export default memo(PlayerContent)

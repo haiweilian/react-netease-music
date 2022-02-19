@@ -1,6 +1,6 @@
 import './PlayerControl.scss'
 import { Tooltip } from 'antd'
-import { useMemo } from 'react'
+import { useMemo, memo } from 'react'
 import Icon from '~/components/base/Icon'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   togglePlaying: () => void
 }
 
-export default function PlayerControl(props: Props) {
+function PlayerControl(props: Props) {
   const status = useMemo(() => {
     return props.playing ? 'player-pause' : 'player-play'
   }, [props.playing])
@@ -35,3 +35,5 @@ export default function PlayerControl(props: Props) {
     </>
   )
 }
+
+export default memo(PlayerControl)

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, memo } from 'react'
 import { Pagination } from 'antd'
 import CommentItem from './CommentItem'
 import { getCommentHot, getCommentNew } from '~/api/comment'
@@ -10,7 +10,7 @@ interface Props {
   type: CommentType
 }
 
-export default function Comment(props: Props) {
+function Comment(props: Props) {
   /**
    * 热门评论
    */
@@ -73,3 +73,5 @@ export default function Comment(props: Props) {
     </div>
   )
 }
+
+export default memo(Comment)

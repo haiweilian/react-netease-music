@@ -87,7 +87,7 @@ export default function HeaderSearch() {
             ))}
           </div>
         </div>,
-        document.querySelector('#out')!
+        document.querySelector('body')!
       )}
     </>
   )

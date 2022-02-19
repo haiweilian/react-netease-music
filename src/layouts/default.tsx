@@ -20,7 +20,6 @@ export default function Layout() {
           <Outlet />
         </Suspense>
       </main>
-      <section id="out"></section>
     </>
   )
 }

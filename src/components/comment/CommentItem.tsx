@@ -1,5 +1,6 @@
 import './CommentItem.scss'
 import dayjs from 'dayjs'
+import LazyLoad from 'react-lazyload'
 import Icon from '~/components/base/Icon'
 import { thumbnail } from '~/utils'
 import type { IComment } from '~/types'
@@ -12,7 +13,9 @@ export default function CommentItem({ comment }: Props) {
   return (
     <div className="comment">
       <div className="comment__avatar">
-        <img src={thumbnail(comment.avatarUrl, 40)} />
+        <LazyLoad height={40} scrollContainer=".layout">
+          <img src={thumbnail(comment.avatarUrl, 40)} />
+        </LazyLoad>
       </div>
       <div className="comment__content is-border">
         <div className="comment__text">

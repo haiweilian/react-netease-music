@@ -9,6 +9,10 @@ import PlayerContent from './PlayerContent'
 import PlayerControl from './PlayerControl'
 import PlayerVolume from './PlayerVolume'
 
+/**
+ * @知识 此组件相关的逻辑包含常见的性能优化
+ * https://juejin.cn/post/6844904000043614222
+ */
 export default function Player() {
   /**
    * 获取到播放地址

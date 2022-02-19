@@ -1,5 +1,5 @@
 import { useEffect, useState, MutableRefObject } from 'react'
-import { useEventListener } from 'ahooks'
+import { useEventListener, useMemoizedFn } from 'ahooks'
 
 export function useMediaControls(target: MutableRefObject<HTMLMediaElement | null>, src: string) {
   const el = target.current
@@ -38,8 +38,9 @@ export function useMediaControls(target: MutableRefObject<HTMLMediaElement | nul
     currentTime,
     volume,
     duration,
-    togglePlaying,
-    changeCurrentTime,
-    changeVolume,
+    // useMemoizedFn 替代 useCallback 持久缓存
+    togglePlaying: useMemoizedFn(togglePlaying),
+    changeCurrentTime: useMemoizedFn(changeCurrentTime),
+    changeVolume: useMemoizedFn(changeVolume),
   }
 }

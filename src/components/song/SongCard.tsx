@@ -1,5 +1,6 @@
 import './SongCard.scss'
 import dayjs from 'dayjs'
+import LazyLoad from 'react-lazyload'
 import { store, SET_CURRENT_SONG } from '~/store'
 import { thumbnail, padZero } from '~/utils'
 import type { ISong } from '~/types'
@@ -23,7 +24,9 @@ export default function SongCard({ song }: Props) {
       </div>
       {song.picUrl ? (
         <div className="song-card__cover">
-          <img src={thumbnail(song.picUrl, 60)} className="" />
+          <LazyLoad height={60} scrollContainer=".layout">
+            <img src={thumbnail(song.picUrl, 60)} className="" />
+          </LazyLoad>
         </div>
       ) : null}
       <div className="song-card__text">{song.name}</div>
