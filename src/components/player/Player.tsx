@@ -1,8 +1,8 @@
 import './Player.scss'
-import { useRef, useState } from 'react'
+import { useMemo, useRef } from 'react'
+import { useRecoilValue } from 'recoil'
 import { useMediaControls } from '~/hooks'
-import { store } from '~/store'
-import type { ISong } from '~/types'
+import { songStore } from '~/store'
 import PlayerLyric from './PlayerLyric'
 import PlayerProgress from './PlayerProgress'
 import PlayerContent from './PlayerContent'
@@ -17,15 +17,11 @@ export default function Player() {
   /**
    * 获取到播放地址
    */
-  const [currentSong, setCurrentSong] = useState<ISong>({} as ISong)
-  const [currentSongSrc, setCurrentSongSrc] = useState('')
-  store.subscribe(() => {
-    const song = store.getState().player.currentSong
-    if (song) {
-      setCurrentSong(song)
-      setCurrentSongSrc(`https://music.163.com/song/media/outer/url?id=${song.id}.mp3`)
-    }
-  })
+  const currentSong = useRecoilValue(songStore)
+  const currentSongSrc = useMemo(() => {
+    if (!currentSong) return ''
+    return `https://music.163.com/song/media/outer/url?id=${currentSong.id}.mp3`
+  }, [currentSong])
 
   /**
    * @var playing  是否播放
@@ -45,16 +41,14 @@ export default function Player() {
       <audio ref={audio} loop={true} autoPlay={true}></audio>
 
       {/* <!-- 歌词封面 --> */}
-      <PlayerLyric playing={playing} currentTime={currentTime} currentSong={currentSong} />
+      {currentSong ? <PlayerLyric playing={playing} currentTime={currentTime} currentSong={currentSong} /> : null}
 
       {/* <!-- 播放进度 --> */}
       <PlayerProgress currentTime={currentTime} duration={duration} changeCurrentTime={changeCurrentTime} />
 
       {/* <!-- 播放内容 --> */}
       <div className="player__left">
-        {currentSong.id ? (
-          <PlayerContent currentSong={currentSong} currentTime={currentTime} duration={duration} />
-        ) : null}
+        {currentSong ? <PlayerContent currentSong={currentSong} currentTime={currentTime} duration={duration} /> : null}
       </div>
 
       {/* <!-- 控制器 --> */}

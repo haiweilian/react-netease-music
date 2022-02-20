@@ -2,26 +2,22 @@ import './MenuUser.scss'
 import { Input, Button, Modal } from 'antd'
 import { useState } from 'react'
 import { useMount, useLocalStorageState } from 'ahooks'
-import { store, SET_USER } from '~/store'
+import { useRecoilState } from 'recoil'
+import { userStore } from '~/store'
 import { GLOBAL_UID_KEY } from '~/utils/constant'
 import { getUserDetail } from '~/api/user'
-import type { IUser } from '~/types'
 
 export default function MenuUser() {
   /**
    * 用户登录，这里还不是真正的账号登录
    */
-  const [user, setUser] = useState<Partial<IUser>>({})
+  const [user, setUser] = useRecoilState(userStore)
   const [loginVisible, setLoginVisible] = useState(false)
   const [uid, setUid] = useLocalStorageState(GLOBAL_UID_KEY)
   const login = async () => {
     const data = await getUserDetail({ uid })
     setUser(data)
     setLoginVisible(false)
-    store.dispatch({
-      type: SET_USER,
-      value: data,
-    })
   }
   useMount(() => {
     uid && login()
@@ -36,18 +32,14 @@ export default function MenuUser() {
       content: '确定退出登录',
       onOk() {
         setUid('')
-        setUser({})
-        store.dispatch({
-          type: SET_USER,
-          value: {},
-        })
+        setUser(null)
       },
     })
   }
 
   return (
     <div className="menu-user">
-      {user.userId ? (
+      {user ? (
         /* <!-- 登录后 --> */
         <div className="menu-user__user" onClick={logout}>
           <img className="menu-user__avatar" src={user.avatarUrl} alt="" />

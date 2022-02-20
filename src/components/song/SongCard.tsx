@@ -1,7 +1,8 @@
 import './SongCard.scss'
 import dayjs from 'dayjs'
 import LazyLoad from 'react-lazyload'
-import { store, SET_CURRENT_SONG } from '~/store'
+import { useSetRecoilState } from 'recoil'
+import { songStore } from '~/store'
 import { thumbnail, padZero } from '~/utils'
 import type { ISong } from '~/types'
 
@@ -10,15 +11,10 @@ interface Props {
 }
 
 export default function SongCard({ song }: Props) {
-  const setCurrentPlaySong = () => {
-    store.dispatch({
-      type: SET_CURRENT_SONG,
-      value: song,
-    })
-  }
+  const setSong = useSetRecoilState(songStore)
 
   return (
-    <div className="song-card" onClick={setCurrentPlaySong}>
+    <div className="song-card" onClick={() => setSong(song)}>
       <div className="song-card__order">
         <span className="order">{padZero(song.order)}</span>
       </div>

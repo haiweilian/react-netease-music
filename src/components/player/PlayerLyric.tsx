@@ -2,13 +2,14 @@ import './PlayerLyric.scss'
 import { useCallback, useEffect, useRef, useState, memo } from 'react'
 import { createPortal } from 'react-dom'
 import { Lrc, Runner, Lyric } from 'lrc-kit'
+import { useRecoilState } from 'recoil'
 import PlayBar from '~/assets/image/play-bar.png'
 import PlayBarSupport from '~/assets/image/play-bar-support.png'
 import Comment from '~/components/comment/Comment'
 import { getLyric } from '~/api/player'
 import { thumbnail } from '~/utils'
 import { CommentType } from '~/utils/constant'
-import { store } from '~/store'
+import { lyricStatusStore } from '~/store'
 import type { ISong } from '~/types'
 
 interface Props {
@@ -21,10 +22,7 @@ function PlayerLyric(props: Props) {
   /**
    * 是否展示歌词
    */
-  const [lyricPageStatus, setLyricPageStatus] = useState(false)
-  store.subscribe(() => {
-    setLyricPageStatus(store.getState().player.lyricPageStatus)
-  })
+  const [lyricPageStatus] = useRecoilState(lyricStatusStore)
 
   /**
    * 歌词解析并根据播放时间实时获取歌词行数。

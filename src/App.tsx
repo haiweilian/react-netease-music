@@ -1,17 +1,22 @@
 import { useRoutes } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
 import { Spin } from 'antd'
-import { store } from './store'
+import { spinStore } from '~/store'
 import routes from './router/index'
+import emitter from '~/utils/emitter'
 
 function App() {
-  const [spinning, setSpinning] = useState(false)
+  const [spinning, setSpinning] = useRecoilState(spinStore)
+
   useEffect(() => {
-    const unSubscribe = store.subscribe(() => {
-      setSpinning(store.getState().spin.loading)
+    emitter.on('spin', (val) => {
+      setSpinning(val)
     })
-    return unSubscribe
-  }, [])
+    return () => {
+      emitter.all.clear()
+    }
+  }, [setSpinning])
 
   return (
     <>

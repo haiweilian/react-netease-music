@@ -1,7 +1,8 @@
 import './PlayerContent.scss'
 import dayjs from 'dayjs'
-import { useState, memo } from 'react'
-import { store, SET_LYRIC_PAGE_STATUS } from '~/store'
+import { memo } from 'react'
+import { useRecoilState } from 'recoil'
+import { lyricStatusStore } from '~/store'
 import { thumbnail } from '~/utils'
 import { ISong } from '~/types'
 import Icon from '~/components/base/Icon'
@@ -13,23 +14,17 @@ interface Props {
 }
 
 function PlayerContent(props: Props) {
-  const [iconStatus, setIconStatus] = useState('expand')
+  const [lyricStatus, setLyricStatus] = useRecoilState(lyricStatusStore)
   const togglePlayer = () => {
-    store.dispatch({
-      type: SET_LYRIC_PAGE_STATUS,
-      value: null,
-    })
+    setLyricStatus(!lyricStatus)
   }
-  store.subscribe(() => {
-    setIconStatus(store.getState().player.lyricPageStatus ? 'shrink' : 'expand')
-  })
 
   return (
     <>
       <div className="player-content__playimg" onClick={togglePlayer}>
         <img className="player-content__blur" src={thumbnail(props.currentSong.picUrl, 40)} />
         <div className="player-content__mask"></div>
-        <Icon name={iconStatus} className="player-content__control" size={22} />
+        <Icon name={lyricStatus ? 'shrink' : 'expand'} className="player-content__control" size={22} />
       </div>
       <div className="player-content__playcon" onClick={togglePlayer}>
         <div className="player-content__name">

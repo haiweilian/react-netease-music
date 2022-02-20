@@ -5,14 +5,16 @@ import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Input } from 'antd'
 import { useClickAway, useLocalStorageState } from 'ahooks'
+import { useSetRecoilState } from 'recoil'
 
 import { isEmpty } from '~/utils'
-import { store, SET_LYRIC_PAGE_STATUS } from '~/store'
+import { lyricStatusStore } from '~/store'
 import { GLOBAL_SEARCH_HOT_KEY } from '~/utils/constant'
 import { getSearchHot } from '~/api/search'
 
 export default function HeaderSearch() {
   const navigate = useNavigate()
+  const setLyricStatus = useSetRecoilState(lyricStatusStore)
 
   /**
    * "useClickAway" 监听元素外的点击事件
@@ -42,10 +44,7 @@ export default function HeaderSearch() {
 
     setIsSearch(false)
     navigate(`/search/${keyword}`)
-    store.dispatch({
-      type: SET_LYRIC_PAGE_STATUS,
-      value: false,
-    })
+    setLyricStatus(false)
 
     if (history) {
       setStorage([...new Set([keyword, ...storage])])

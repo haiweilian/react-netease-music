@@ -2,20 +2,18 @@ import './MenuSong.scss'
 import Icon from '../base/Icon'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { store } from '~/store'
+import { useRecoilValue } from 'recoil'
+import { userStore } from '~/store'
 import { localMenus } from '~/utils/local'
 import { getUserPlaylist } from '~/api/user'
-import type { IUser, IMenu } from '~/types'
+import type { IMenu } from '~/types'
 
 export default function MenuSong() {
-  const [user, setUser] = useState<Partial<IUser>>({})
-  store.subscribe(() => {
-    setUser(store.getState().user.user)
-  })
+  const user = useRecoilValue(userStore)
 
   const [menusList, setMenus] = useState<IMenu[]>([])
   useEffect(() => {
-    if (user.userId) {
+    if (user) {
       getUserPlaylist({ uid: user.userId }).then((res) => {
         setMenus(localMenus.concat(res))
       })

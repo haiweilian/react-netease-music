@@ -1,19 +1,13 @@
-import { store, SET_LOADING } from '~/store'
+import emitter from '~/utils/emitter'
 
 let needLoadingRequestCount = 0
 
 function startLoading() {
-  store.dispatch({
-    type: SET_LOADING,
-    value: true,
-  })
+  emitter.emit('spin', true)
 }
 
 function endLoading() {
-  store.dispatch({
-    type: SET_LOADING,
-    value: false,
-  })
+  emitter.emit('spin', false)
 }
 
 function tryCloseLoading() {
