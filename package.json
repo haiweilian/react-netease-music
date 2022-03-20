@@ -27,8 +27,8 @@
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {
-    "@bfehub/eslint-config-react": "^1.0.0",
-    "@bfehub/stylelint-config-basic": "^1.0.0",
+    "@bfehub/eslint-config-react": "^1.2.0",
+    "@bfehub/stylelint-config-basic": "^1.2.0",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@testing-library/jest-dom": "^5.16.2",
