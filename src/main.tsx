@@ -1,16 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import { RecoilRoot } from 'recoil'
 import zhCN from 'antd/lib/locale/zh_CN'
 import App from './App'
 
-import 'antd/dist/antd.css'
 import 'virtual:svg-icons-register'
 import './styles/index.scss'
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root')!)
+root.render(
   <React.StrictMode>
     <ConfigProvider locale={zhCN}>
       <HashRouter>
@@ -19,9 +19,8 @@ ReactDOM.render(
         </RecoilRoot>
       </HashRouter>
     </ConfigProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )
 
 // install all modules under `modules/`
-Object.values(import.meta.globEager('./modules/*.ts')).map((i) => i.install?.())
+Object.values(import.meta.glob('./modules/*.ts', { eager: true })).map((i: any) => i.install?.())

@@ -15,7 +15,7 @@ function PlayerProgress(props: Props) {
         value={props.currentTime}
         min={0}
         max={props.duration}
-        tooltipVisible={false}
+        tooltip={{ open: false }}
         onChange={props.changeCurrentTime}
       />
     </div>

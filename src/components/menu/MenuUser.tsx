@@ -13,7 +13,7 @@ export default function MenuUser() {
    */
   const [user, setUser] = useRecoilState(userStore)
   const [loginVisible, setLoginVisible] = useState(false)
-  const [uid, setUid] = useLocalStorageState(GLOBAL_UID_KEY)
+  const [uid, setUid] = useLocalStorageState<string>(GLOBAL_UID_KEY)
   const login = async () => {
     const data = await getUserDetail({ uid })
     setUser(data)
@@ -57,7 +57,7 @@ export default function MenuUser() {
       )}
 
       {/* <!-- UID登录 --> */}
-      <Modal title="登录" width="500px" footer={null} visible={loginVisible} onCancel={() => setLoginVisible(false)}>
+      <Modal title="登录" width="500px" footer={null} open={loginVisible} onCancel={() => setLoginVisible(false)}>
         <div className="">
           <Input placeholder="请输入您的网易云uid" onChange={(e) => setUid(e.target.value)} />
           <div className="menu-user__uid">

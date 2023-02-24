@@ -34,7 +34,7 @@ function PlayerVolume(props: Props) {
         min={0}
         max={1}
         step={0.01}
-        tooltipVisible={false}
+        tooltip={{ open: false }}
         onChange={props.changeVolume}
         className="player-volume__slider"
       />
