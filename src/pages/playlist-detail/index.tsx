@@ -1,12 +1,12 @@
+import { Tabs } from 'antd'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Tabs } from 'antd'
-import SongCard from '~/components/song/SongCard'
-import Comment from '~/components/comment/Comment'
-import PlaylistHeader from './PlaylistHeader'
-import { CommentType } from '~/utils/constant'
 import { getPlaylistDetail } from '~/api/playlist'
+import Comment from '~/components/comment/Comment'
+import SongCard from '~/components/song/SongCard'
 import type { IPlaylistDetail } from '~/types'
+import { CommentType } from '~/utils/constant'
+import PlaylistHeader from './PlaylistHeader'
 
 export default function PlaylistDetail() {
   const { id } = useParams()

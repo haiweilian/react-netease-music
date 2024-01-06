@@ -3,8 +3,8 @@ import dayjs from 'dayjs'
 import LazyLoad from 'react-lazyload'
 import { useSetRecoilState } from 'recoil'
 import { songStore } from '~/store'
-import { thumbnail, padZero } from '~/utils'
 import type { ISong } from '~/types'
+import { thumbnail, padZero } from '~/utils'
 
 interface Props {
   song: ISong

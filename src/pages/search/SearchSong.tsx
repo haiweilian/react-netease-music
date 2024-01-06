@@ -1,10 +1,10 @@
+import { Pagination } from 'antd'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Pagination } from 'antd'
-import SongCard from '~/components/song/SongCard'
 import { getSearch } from '~/api/search'
-import { SearchType } from '~/utils/constant'
+import SongCard from '~/components/song/SongCard'
 import type { ISong } from '~/types'
+import { SearchType } from '~/utils/constant'
 
 export default function SearchSong() {
   const { keywords } = useParams()

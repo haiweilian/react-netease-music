@@ -1,11 +1,11 @@
 import './MenuUser.scss'
+import { useMount, useLocalStorageState } from 'ahooks'
 import { Input, Button, Modal } from 'antd'
 import { useState } from 'react'
-import { useMount, useLocalStorageState } from 'ahooks'
 import { useRecoilState } from 'recoil'
+import { getUserDetail } from '~/api/user'
 import { userStore } from '~/store'
 import { GLOBAL_UID_KEY } from '~/utils/constant'
-import { getUserDetail } from '~/api/user'
 
 export default function MenuUser() {
   /**

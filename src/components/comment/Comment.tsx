@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState, memo } from 'react'
 import { Pagination } from 'antd'
-import CommentItem from './CommentItem'
+import { useEffect, useRef, useState, memo } from 'react'
 import { getCommentHot, getCommentNew } from '~/api/comment'
-import { CommentType } from '~/utils/constant'
 import type { IComment } from '~/types'
+import { CommentType } from '~/utils/constant'
+import CommentItem from './CommentItem'
 
 interface Props {
   id: number | string

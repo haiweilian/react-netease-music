@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
+import { getTopSong } from '~/api/playlist'
 import Tabs from '~/components/base/Tabs'
 import SongCard from '~/components/song/SongCard'
-import { getTopSong } from '~/api/playlist'
-import { localSongTabs } from '~/utils/local'
 import type { ISong } from '~/types'
+import { localSongTabs } from '~/utils/local'
 
 export default function Song() {
   const [songs, setSongs] = useState<ISong[]>([])

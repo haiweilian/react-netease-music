@@ -1,10 +1,10 @@
+import { Pagination } from 'antd'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Pagination } from 'antd'
-import PlaylistCard from '~/components/playlist/PlaylistCard'
 import { getSearch } from '~/api/search'
-import { SearchType } from '~/utils/constant'
+import PlaylistCard from '~/components/playlist/PlaylistCard'
 import type { IPlaylist } from '~/types'
+import { SearchType } from '~/utils/constant'
 
 export default function SearchPlaylist() {
   const { keywords } = useParams()

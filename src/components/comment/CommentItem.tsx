@@ -2,8 +2,8 @@ import './CommentItem.scss'
 import dayjs from 'dayjs'
 import LazyLoad from 'react-lazyload'
 import Icon from '~/components/base/Icon'
-import { thumbnail } from '~/utils'
 import type { IComment } from '~/types'
+import { thumbnail } from '~/utils'
 
 interface Props {
   comment: IComment

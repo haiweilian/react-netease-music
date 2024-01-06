@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
 import { Carousel } from 'antd'
+import { useEffect, useState } from 'react'
 import { getBanner } from '~/api/base'
 import type { IBanner } from '~/types/index'
 

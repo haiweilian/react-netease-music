@@ -1,16 +1,16 @@
 import './PlayerLyric.scss'
+import { Lrc, Runner, Lyric } from 'lrc-kit'
 import { useCallback, useEffect, useRef, useState, memo } from 'react'
 import { createPortal } from 'react-dom'
-import { Lrc, Runner, Lyric } from 'lrc-kit'
 import { useRecoilState } from 'recoil'
-import PlayBar from '~/assets/image/play-bar.png'
-import PlayBarSupport from '~/assets/image/play-bar-support.png'
-import Comment from '~/components/comment/Comment'
 import { getLyric } from '~/api/player'
-import { thumbnail } from '~/utils'
-import { CommentType } from '~/utils/constant'
+import PlayBarSupport from '~/assets/image/play-bar-support.png'
+import PlayBar from '~/assets/image/play-bar.png'
+import Comment from '~/components/comment/Comment'
 import { lyricStatusStore } from '~/store'
 import type { ISong } from '~/types'
+import { thumbnail } from '~/utils'
+import { CommentType } from '~/utils/constant'
 
 interface Props {
   playing: boolean
@@ -30,6 +30,7 @@ function PlayerLyric(props: Props) {
   const [lines, setLines] = useState<Lyric[]>([])
   const [lineActive, setLineActive] = useState<number>(0)
   const lrcInstance = useRef<Runner>()
+  const lyricLineRefs = useRef<HTMLDivElement[]>([])
 
   useEffect(() => {
     if (!props.currentSong.id) return
@@ -54,7 +55,6 @@ function PlayerLyric(props: Props) {
    * 获取歌词列表 ref，在检测到当前行变化的时候，定位歌词到内容中间
    */
   const scroller = useRef<HTMLDivElement>(null)
-  const lyricLineRefs = useRef<HTMLDivElement[]>([])
   const setItemRef = useCallback((node: HTMLDivElement) => {
     if (node) {
       lyricLineRefs.current.push(node)

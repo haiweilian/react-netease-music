@@ -1,8 +1,8 @@
 import './index.scss'
-import { useParams } from 'react-router-dom'
 import { Tabs } from 'antd'
-import SearchSong from './SearchSong'
+import { useParams } from 'react-router-dom'
 import SearchPlaylist from './SearchPlaylist'
+import SearchSong from './SearchSong'
 
 export default function Search() {
   const { keywords } = useParams()

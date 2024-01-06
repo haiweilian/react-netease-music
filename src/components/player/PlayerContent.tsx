@@ -2,10 +2,10 @@ import './PlayerContent.scss'
 import dayjs from 'dayjs'
 import { memo } from 'react'
 import { useRecoilState } from 'recoil'
-import { lyricStatusStore } from '~/store'
-import { thumbnail } from '~/utils'
-import { ISong } from '~/types'
 import Icon from '~/components/base/Icon'
+import { lyricStatusStore } from '~/store'
+import { ISong } from '~/types'
+import { thumbnail } from '~/utils'
 
 interface Props {
   currentSong: ISong

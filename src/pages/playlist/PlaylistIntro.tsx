@@ -15,7 +15,7 @@ export default function PlaylistIntro() {
   }, [])
 
   return playlist.id ? (
-    <div v-show="playlist.id" className="intro-card">
+    <div className="intro-card">
       <div className="intro-card__wrapper">
         <div className="intro-card__cover">
           <img src={playlist.picUrl} />

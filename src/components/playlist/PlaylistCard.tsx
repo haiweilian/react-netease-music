@@ -2,8 +2,8 @@ import './PlaylistCard.scss'
 import LazyLoad from 'react-lazyload'
 import { useNavigate } from 'react-router-dom'
 import Icon from '~/components/base/Icon'
-import { thumbnail, formatCount } from '~/utils'
 import type { IPlaylist } from '~/types'
+import { thumbnail, formatCount } from '~/utils'
 
 interface Props {
   playlist: IPlaylist

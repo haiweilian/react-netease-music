@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import PlaylistCard from '~/components/playlist/PlaylistCard'
 import { getPersonalizedPlaylist } from '~/api/playlist'
+import PlaylistCard from '~/components/playlist/PlaylistCard'
 import type { IPlaylist } from '~/types'
 
 export default function DiscoveryPlaylist() {

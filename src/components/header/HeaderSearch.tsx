@@ -1,16 +1,16 @@
 import './HeaderSearch.scss'
 
-import { createPortal } from 'react-dom'
-import { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Input } from 'antd'
 import { useClickAway, useLocalStorageState } from 'ahooks'
+import { Input } from 'antd'
+import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
 
-import { isEmpty } from '~/utils'
-import { lyricStatusStore } from '~/store'
-import { GLOBAL_SEARCH_HOT_KEY } from '~/utils/constant'
 import { getSearchHot } from '~/api/search'
+import { lyricStatusStore } from '~/store'
+import { isEmpty } from '~/utils'
+import { GLOBAL_SEARCH_HOT_KEY } from '~/utils/constant'
 
 export default function HeaderSearch() {
   const navigate = useNavigate()
@@ -47,7 +47,7 @@ export default function HeaderSearch() {
     setLyricStatus(false)
 
     if (history) {
-      setStorage([...new Set([keyword, ...storage])])
+      setStorage([...new Set([keyword, ...storage!])])
     }
   }
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function HeaderSearch() {
           </div>
           <p className="search__title">搜索历史</p>
           <div className="search__tags">
-            {storage.map((hot) => (
+            {storage!.map((hot) => (
               <span key={hot} className="search__tag" onClick={() => goSearch(hot)}>
                 {hot}
               </span>

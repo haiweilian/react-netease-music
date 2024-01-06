@@ -3,10 +3,10 @@ import { useMemo, useRef } from 'react'
 import { useRecoilValue } from 'recoil'
 import { useMediaControls } from '~/hooks'
 import { songStore } from '~/store'
-import PlayerLyric from './PlayerLyric'
-import PlayerProgress from './PlayerProgress'
 import PlayerContent from './PlayerContent'
 import PlayerControl from './PlayerControl'
+import PlayerLyric from './PlayerLyric'
+import PlayerProgress from './PlayerProgress'
 import PlayerVolume from './PlayerVolume'
 
 /**

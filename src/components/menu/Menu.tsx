@@ -1,6 +1,6 @@
 import './Menu.scss'
-import MenuUser from './MenuUser'
 import MenuSong from './MenuSong'
+import MenuUser from './MenuUser'
 
 export default function Menu() {
   return (

@@ -1,12 +1,12 @@
 import './MenuSong.scss'
-import Icon from '../base/Icon'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
-import { userStore } from '~/store'
-import { localMenus } from '~/utils/local'
 import { getUserPlaylist } from '~/api/user'
+import { userStore } from '~/store'
 import type { IMenu } from '~/types'
+import { localMenus } from '~/utils/local'
+import Icon from '../base/Icon'
 
 export default function MenuSong() {
   const user = useRecoilValue(userStore)

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import SongCard from '~/components/song/SongCard'
 import { getPersonalizedNewsong } from '~/api/playlist'
+import SongCard from '~/components/song/SongCard'
 import { ISong } from '~/types'
 
 export default function DiscoverySong() {

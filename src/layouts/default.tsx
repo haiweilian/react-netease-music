@@ -1,6 +1,6 @@
 import './default.scss'
-import { Outlet } from 'react-router-dom'
 import { Suspense } from 'react'
+import { Outlet } from 'react-router-dom'
 import Header from '~/components/header/Header'
 import Menu from '~/components/menu/Menu'
 import Player from '~/components/player/Player'

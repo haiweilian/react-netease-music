@@ -1,6 +1,7 @@
+/// <reference types="vitest" />
 import path from 'path'
+import React from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
@@ -11,7 +12,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
+    React(),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[name]',
@@ -20,8 +21,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "src/styles/additional.scss";',
+        additionalData: '@import "src/styles/additional.scss";\n',
       },
     },
+  },
+  test: {
+    environment: 'happy-dom',
   },
 })

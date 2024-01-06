@@ -10,10 +10,7 @@
 
 @include b(player-lyric) {
   position: fixed;
-  top: 50px;
-  right: 0;
-  bottom: 63px;
-  left: 0;
+  inset: 50px 0 63px;
   z-index: $z-index-player-player;
   padding: 0 36px;
   overflow: hidden;

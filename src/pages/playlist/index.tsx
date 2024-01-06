@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
 import { Pagination } from 'antd'
-import PlaylistIntro from './PlaylistIntro'
+import { useEffect, useState } from 'react'
+import { getTopPlaylist } from '~/api/playlist'
 import Tabs from '~/components/base/Tabs'
 import PlaylistCard from '~/components/playlist/PlaylistCard'
-import { getTopPlaylist } from '~/api/playlist'
-import { localPlaylistTabs } from '~/utils/local'
 import type { IPlaylist } from '~/types'
+import { localPlaylistTabs } from '~/utils/local'
+import PlaylistIntro from './PlaylistIntro'
 
 export default function Playlist() {
   const [total, setTotal] = useState(0)

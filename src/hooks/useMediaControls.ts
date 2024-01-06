@@ -1,5 +1,5 @@
-import { useEffect, useState, MutableRefObject } from 'react'
 import { useEventListener, useMemoizedFn } from 'ahooks'
+import { useEffect, useState, MutableRefObject } from 'react'
 
 export function useMediaControls(target: MutableRefObject<HTMLMediaElement | null>, src: string) {
   const el = target.current
